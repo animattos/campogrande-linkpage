@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,35 +9,54 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      padding: 20px;
+      justify-content: center;
+    }
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      top: 0;
+      left: 0;
+    }
+    .modal {
+      position: relative;
+      background-color: #111;
+      border-radius: 12px;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      z-index: 1;
+      box-shadow: 0 0 30px rgba(255, 165, 0, 0.4);
+      animation: popIn 0.4s ease-out;
     }
     .logo {
-      width: 120px;
-      margin-top: 20px;
+      width: 100px;
+      margin-bottom: 20px;
     }
     h1 {
-      font-size: 28px;
-      margin: 20px 0 10px;
+      font-size: 24px;
+      margin-bottom: 10px;
       color: #FFA500;
     }
     p {
       color: #ccc;
       margin-bottom: 30px;
-      text-align: center;
+      font-size: 14px;
     }
     .link-button {
       display: block;
-      width: 80%;
-      max-width: 400px;
       background-color: #FFA500;
       color: #000;
       text-align: center;
-      padding: 15px;
+      padding: 14px;
       margin: 10px 0;
       text-decoration: none;
       font-weight: bold;
@@ -44,16 +64,28 @@
       transition: 0.3s;
     }
     .link-button:hover {
-      background-color: #ff7f00;
+      background-color: #ff8c00;
+    }
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo Campo Grande Anúncios" class="logo">
-  <h1>Campo Grande Anúncios</h1>
-  <p>Venda seus anúncios de forma rápida e direta via WhatsApp.</p>
-
-  <a href="https://wa.me/5521973743649" class="link-button">✅ Chame pelo WhatsApp</a>
-  
+  <div class="overlay"></div>
+  <div class="modal">
+    <img src="logo.png" alt="Logo Campo Grande Anúncios" class="logo">
+    <h1>Campo Grande Anúncios</h1>
+    <p>Venda seus anúncios de forma rápida e direta via WhatsApp.</p>
+    <a href="https://wa.me/message/2XJ2X2MFF4GGK1" class="link-button">✅ Compre pelo WhatsApp</a>
+    <a href="https://wa.me/message/2XJ2X2MFF4GGK1" class="link-button">💬 Fale com nosso Atendente</a>
+  </div>
 </body>
 </html>
