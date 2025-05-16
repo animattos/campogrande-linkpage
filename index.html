@@ -2,58 +2,66 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campo Grande Anúncios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Links</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
+      padding: 0;
+      background: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .popup {
+      background: #1e1e1e;
+      border-radius: 10px;
       padding: 20px;
+      width: 90%;
+      max-width: 350px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
     }
-    .logo {
-      width: 120px;
-      margin-top: 20px;
-    }
-    h1 {
-      font-size: 28px;
-      margin: 20px 0 10px;
-      color: #FFA500;
-    }
-    p {
-      color: #ccc;
-      margin-bottom: 30px;
+
+    .popup h2 {
+      color: white;
       text-align: center;
+      margin-bottom: 20px;
     }
-    .link-button {
-      display: block;
-      width: 80%;
-      max-width: 400px;
-      background-color: #FFA500;
-      color: #000;
-      text-align: center;
-      padding: 15px;
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      background-color: #333;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
       margin: 10px 0;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 8px;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
-    .link-button:hover {
-      background-color: #ff7f00;
+
+    .link-btn:hover {
+      background-color: #555;
+    }
+
+    .icon {
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo Campo Grande Anúncios" class="logo">
-  <h1>Campo Grande Anúncios</h1>
-  <p>Anuncie em nossa página de forma rápida.</p>
-
-  <a href="https://wa.me/5521973743649" class="link-button">✅ Chame pelo WhatsApp</a>
-  
+  <div class="popup">
+    <h2>Links</h2>
+    <a class="link-btn" href="https://wa.me/message/2XJX2MFF4GGK1" target="_blank">
+      <span class="icon">🔗</span> Compre Pelo WHATSAPP!
+    </a>
+    <a class="link-btn" href="https://wa.me/message/2XJX2MFF4GGK1" target="_blank">
+      <span class="icon">💬</span> Fale Com Nosso Atendente!
+    </a>
+  </div>
 </body>
 </html>
