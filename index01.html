@@ -1,164 +1,235 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCAA - NutriGan</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BCAA • Informações e Dashboard</title>
+
+  <!-- Opcional: seu CSS global -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root{
+      --brand:#0b63ff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --bg:#f6f7fb;
+      --ring:rgba(11,99,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Arial}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 16px 56px}
+    .back{display:inline-block;margin-bottom:18px;padding:10px 14px;background:var(--brand);color:#fff;border-radius:10px;text-decoration:none;font-weight:700}
+    .page-title{font-size:28px;line-height:1.25;margin:8px 0 22px;color:var(--brand);text-align:center}
+
+    .product{display:grid;grid-template-columns:320px 1fr;gap:22px;margin-bottom:26px}
+    @media (max-width:860px){.product{grid-template-columns:1fr}}
+    .card{background:var(--card);border-radius:14px;box-shadow:0 0 0 1px rgba(15,23,42,.04),0 12px 30px -18px var(--ring)}
+    .card .box{padding:18px 18px}
+    .product__media{display:flex;align-items:center;justify-content:center;padding:22px}
+    .product__media img{max-width:85%;height:auto;display:block;filter:drop-shadow(0 18px 25px rgba(0,0,0,.15))}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+    .kpi{background:#f8f9fe;border-radius:12px;padding:12px;text-align:center}
+    .kpi b{display:block;font-size:22px;margin-bottom:4px;color:var(--brand)}
+
+    .section-title{font-size:20px;margin:0 0 12px}
+    .muted{color:var(--muted)}
+    ul.clean{margin:0 0 8px 18px;padding:0}
+    ul.clean li{margin:6px 0}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:860px){.grid-2{grid-template-columns:1fr}}
+
+    .dashboard{margin-top:24px}
+    .chart-card{padding:12px}
+    .chart-area{height:380px;background:#fafafa;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+    .tbl{width:100%;border-collapse:collapse}
+    .tbl th,.tbl td{padding:10px 12px;border-bottom:1px solid #eef1f6;text-align:left}
+    .tbl th{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+
+    .faq details{background:#f9fbff;border-radius:12px;padding:12px 14px;margin:8px 0;border:1px solid #e8eefc}
+    .faq summary{cursor:pointer;font-weight:700;color:var(--brand)}
+    .disclaimer{font-size:13px;color:var(--muted);margin-top:8px}
+    .center{text-align:center;margin-top:26px}
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <h1>NutriGan</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html#home">Início</a></li>
-                    <li><a href="index.html#mass-gain">Ganho de Massa</a></li>
-                    <li><a href="index.html#weight-loss">Perda de Peso</a></li>
-                    <li><a href="index.html#contact">Contato</a></li>
-                </ul>
-            </nav>
+  <div class="wrap">
+    <a class="back" href="index.html">← Voltar à Página Inicial</a>
+
+    <h1 class="page-title">BCAA — Informações do Produto e Dashboard de Resultados</h1>
+
+    <!-- BLOCO DO PRODUTO -->
+    <section class="product">
+      <div class="card product__media">
+        <!-- use sua imagem local -->
+        <img src="bcaa.png" alt="Frasco de BCAA">
+      </div>
+
+      <div class="card">
+        <div class="box">
+          <h2 class="section-title">O que é</h2>
+          <p class="muted">
+            BCAA (Leucina, Isoleucina e Valina) são aminoácidos de cadeia ramificada que ajudam na
+            <b>recuperação muscular</b>, reduzem a <b>fadiga</b> durante exercícios e podem <b>preservar massa magra</b>
+            em dietas com déficit calórico.
+          </p>
+
+          <div class="kpis">
+            <div class="kpi"><b>5–10 g</b><span class="muted">por porção</span></div>
+            <div class="kpi"><b>2:1:1</b><span class="muted">Leu:Ile:Val</span></div>
+            <div class="kpi"><b>0 g</b><span class="muted">açúcares</span></div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section id="bcaa-details" class="products-section">
-            <div class="container">
-                <h2 id="product-detail-title">BCAA</h2>
-                <div class="product-detail-content">
-                    <img id="product-detail-image" src="bcaa.png" alt="BCAA">
-                    <p id="product-detail-description">Aminoácidos de cadeia ramificada (Leucina, Isoleucina e Valina) que auxiliam na recuperação muscular, previnem o catabolismo (perda de massa muscular) e reduzem a fadiga durante o exercício. São considerados "blocos construtores" de proteínas, essenciais para quem busca otimizar o desempenho e a recuperação no treino.</p>
-                    <h3>Benefícios Detalhados</h3>
-                    <ul id="product-detail-benefits">
-                        <li><strong>Redução da Fadiga:</strong> BCAAs podem competir com o triptofano (precursor da serotonina) no cérebro, ajudando a diminuir a percepção de fadiga durante exercícios prolongados.</li>
-                        <li><strong>Prevenção do Catabolismo Muscular:</strong> Durante treinos intensos ou em períodos de dieta restritiva, o corpo pode usar o músculo como fonte de energia. A suplementação com BCAA ajuda a preservar a massa muscular existente.</li>
-                        <li><strong>Suporte à Recuperação e Reparo Muscular:</strong> A leucina, em particular, é crucial para iniciar a síntese de proteínas musculares, acelerando o processo de recuperação e reparo após o exercício.</li>
-                        <li><strong>Auxílio na Síntese de Proteínas:</strong> Fornece os aminoácidos necessários para a construção de novas proteínas musculares, contribuindo diretamente para o crescimento da massa magra.</li>
-                        <li><strong>Melhora da Performance em Exercícios Prolongados:</strong> Ao retardar a fadiga e preservar o glicogênio muscular, os BCAAs permitem treinos mais longos e com maior intensidade.</li>
-                    </ul>
-                    <h3>Sugestão de Uso</h3>
-                    <p id="product-detail-suggestion">A dose mais comum e estudada varia de 5 a 10g de BCAAs. Pode ser consumido em diferentes momentos:
-                        <ul>
-                            <li><strong>Antes do Treino:</strong> Para fornecer energia aos músculos e prevenir o catabolismo.</li>
-                            <li><strong>Durante o Treino:</strong> Para manter os níveis de energia, reduzir a fadiga e prolongar o desempenho.</li>
-                            <li><strong>Após o Treino:</strong> Para iniciar a recuperação e a síntese proteica.</li>
-                            <li><strong>Em Dias de Não Treino:</strong> Pode ser tomado com as refeições para garantir a ingestão adequada de aminoácidos, especialmente em dietas com restrição calórica.</li>
-                        </ul>
-                        Misture o pó com água ou sua bebida preferida. Mantenha-se bem hidratado.
-                    </p>
-                    <h3>Dashboard de Resultados - Efeito do BCAA na Fadiga Percebida</h3>
-                    <div class="dashboard-chart">
-                        <canvas id="resultsChart"></canvas>
-                    </div>
-                    <a href="index.html" class="btn">Voltar à Página Inicial</a>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- INFO DETALHADA -->
+    <section class="grid-2">
+      <div class="card"><div class="box">
+        <h3 class="section-title">Principais benefícios (potenciais)</h3>
+        <ul class="clean">
+          <li>Ajuda a reduzir a fadiga em treinos prolongados;</li>
+          <li>Suporte à síntese proteica e recuperação;</li>
+          <li>Auxílio na preservação de massa muscular.</li>
+        </ul>
+        <p class="disclaimer">Benefícios variam conforme dieta, treino e individualidade biológica.</p>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        <h3 class="section-title" style="margin-top:14px">Como usar</h3>
+        <ul class="clean">
+          <li>Dose típica: <b>5–10&nbsp;g</b> antes/durante/depois do treino;</li>
+          <li>Em dias sem treino, pode usar com refeições ricas em proteína.</li>
+        </ul>
+      </div></div>
+
+      <div class="card"><div class="box">
+        <h3 class="section-title">Composição por porção (exemplo)</h3>
+        <ul class="clean">
+          <li>Leucina, Isoleucina e Valina na proporção <b>2:1:1</b> (ex.: 2,5 g : 1,25 g : 1,25 g a cada 5 g);</li>
+          <li>Sem glúten • Sem lactose • Sem estimulantes.</li>
+        </ul>
+
+        <h3 class="section-title" style="margin-top:14px">Atenção e segurança</h3>
+        <ul class="clean">
+          <li>Em caso de condições médicas/uso de medicamentos: <b>consulte seu profissional</b>;</li>
+          <li>Possíveis efeitos: leve desconforto gastrointestinal em estômagos sensíveis;</li>
+          <li>Manter fora do alcance de crianças e armazenar ao abrigo de luz e calor.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+      <div class="card chart-card">
+        <div class="box">
+          <h2 class="section-title">Dashboard de Resultados — Fadiga Percebida</h2>
+          <p class="muted" style="margin-top:-4px">
+            Exemplo ilustrativo de evolução da fadiga (escala 1–10) em 8 semanas
+            (grupo controle vs. com BCAA, associado a treino e alimentação).
+          </p>
         </div>
-    </footer>
+        <div class="chart-area">
+          <canvas id="resultsChart" aria-label="Gráfico de resultados"></canvas>
+        </div>
 
-    <script type="module">
-        import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-        import { productsData } from './data.js';
+        <div class="box" style="padding-top:6px">
+          <table class="tbl" aria-label="Tabela resumo do dashboard">
+            <thead>
+              <tr><th>Semana</th><th>Controle (média)</th><th>Com BCAA (média)</th></tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- preenchido pelo script abaixo -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const product = productsData['bcaa'];
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="card"><div class="box">
+        <h2 class="section-title">Perguntas frequentes</h2>
+        <details>
+          <summary>Preciso tomar todos os dias?</summary>
+          <p class="muted">Depende do protocolo; alguns usam apenas em dias de treino, outros diariamente.</p>
+        </details>
+        <details>
+          <summary>Posso combinar com whey ou creatina?</summary>
+          <p class="muted">Sim; é comum combinar com whey no pós-treino e creatina diariamente.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo para perceber resultados?</summary>
+          <p class="muted">Ajuste de fadiga/recuperação pode ser percebido em algumas semanas, variando por pessoa.</p>
+        </details>
+      </div></div>
+    </section>
 
-            if (product) {
-                // Render chart
-                const ctx = document.getElementById('resultsChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'line', // You can change this to 'bar', 'pie', etc.
-                    data: {
-                        labels: ['Treino 1', 'Treino 2', 'Treino 3', 'Treino 4', 'Treino 5', 'Treino 6', 'Treino 7', 'Treino 8'],
-                        datasets: [{
-                            label: 'Nível de Fadiga Percebida (1-10)',
-                            data: [7, 6.8, 6.5, 6.2, 5.9, 5.5, 5.2, 5],
-                            backgroundColor: 'rgba(255, 193, 7, 0.6)',
-                            borderColor: 'rgba(255, 193, 7, 1)',
-                            borderWidth: 2,
-                            tension: 0.3, // Makes the line a bit curved
-                            pointBackgroundColor: 'rgba(255, 193, 7, 1)',
-                            pointBorderColor: '#fff',
-                            pointBorderWidth: 1,
-                            pointRadius: 5,
-                            fill: true // Fill the area under the line
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'top',
-                                labels: {
-                                    font: {
-                                        size: 14,
-                                        family: 'Roboto'
-                                    },
-                                    color: '#333'
-                                }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return context.dataset.label + ': ' + context.raw;
-                                    }
-                                }
-                            }
-                        },
-                        scales: {
-                            x: {
-                                title: {
-                                    display: true,
-                                    text: 'Sessão de Treino',
-                                    color: '#555',
-                                    font: {
-                                        size: 14,
-                                        family: 'Roboto',
-                                        weight: 'bold'
-                                    }
-                                },
-                                ticks: {
-                                    color: '#666',
-                                    font: {
-                                        family: 'Roboto'
-                                    }
-                                }
-                            },
-                            y: {
-                                beginAtZero: true,
-                                max: 10, // Max fatigue level
-                                title: {
-                                    display: true,
-                                    text: 'Fadiga Percebida (Escala)',
-                                    color: '#555',
-                                    font: {
-                                        size: 14,
-                                        family: 'Roboto',
-                                        weight: 'bold'
-                                    }
-                                },
-                                ticks: {
-                                    color: '#666',
-                                    font: {
-                                        family: 'Roboto'
-                                    },
-                                    stepSize: 1
-                                }
-                            }
-                        }
-                    }
-                });
+    <div class="center">
+      <a class="back" href="index.html">Voltar à Página Inicial</a>
+    </div>
+  </div>
+
+  <!-- Chart.js (UMD, sem módulos) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Script do dashboard -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Semanas (iguais ao index05: 0,2,4,6,8 -> mapeadas para rótulos legíveis)
+      const labels = ['0', '2', '4', '6', '8'];
+
+      // Dados ilustrativos: fadiga (1–10) – menor é melhor
+      // Controle decresce pouco; com BCAA decresce mais ao longo das semanas
+      const controle = [7.0, 6.8, 6.6, 6.4, 6.2];
+      const comBcaa  = [7.0, 6.4, 6.0, 5.7, 5.4];
+
+      // Tabela
+      const tbody = document.getElementById('tableBody');
+      labels.forEach((sem, i) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          `<td>${sem === '0' ? 'Início' : sem + 'ª'}</td>
+           <td>${controle[i].toFixed(1)}</td>
+           <td>${comBcaa[i].toFixed(1)}</td>`;
+        tbody.appendChild(tr);
+      });
+
+      // Gráfico (mesma configuração do index05)
+      const ctx = document.getElementById('resultsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels.map(s => (s==='0'?'Início':s+'ª semana')),
+          datasets: [
+            {
+              label: 'Controle',
+              data: controle,
+              borderWidth: 2,
+              tension: 0.3,
+              fill: false
+            },
+            {
+              label: 'Com BCAA',
+              data: comBcaa,
+              borderWidth: 2,
+              tension: 0.3,
+              fill: false
             }
-        });
-    </script>
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: true } },
+          scales: {
+            y: { beginAtZero: false, title: { display:true, text:'Fadiga (1–10 — menor é melhor)' } },
+            x: { title: { display:true, text:'Semanas' } }
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>

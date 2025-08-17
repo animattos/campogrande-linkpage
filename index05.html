@@ -1,145 +1,233 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L-Carnitina - NutriGan</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>L-Carnitina • Informações e Dashboard</title>
+
+  <!-- Seu CSS global (se existir) -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root{
+      --brand:#0b63ff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --bg:#f6f7fb;
+      --ring:rgba(11,99,255,.12);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Arial}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 16px 56px}
+    .back{display:inline-block;margin-bottom:18px;padding:10px 14px;background:var(--brand);color:#fff;border-radius:10px;text-decoration:none;font-weight:700}
+    .page-title{font-size:28px;line-height:1.25;margin:8px 0 22px;color:var(--brand);text-align:center}
+
+    .product{display:grid;grid-template-columns:320px 1fr;gap:22px;margin-bottom:26px}
+    @media (max-width:860px){.product{grid-template-columns:1fr}}
+    .card{background:var(--card);border-radius:14px;box-shadow:0 0 0 1px rgba(15,23,42,.04),0 12px 30px -18px var(--ring)}
+    .card .box{padding:18px 18px}
+    .product__media{display:flex;align-items:center;justify-content:center;padding:22px}
+    .product__media img{max-width:85%;height:auto;display:block;filter:drop-shadow(0 18px 25px rgba(0,0,0,.15))}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+    .kpi{background:#f8f9fe;border-radius:12px;padding:12px;text-align:center}
+    .kpi b{display:block;font-size:22px;margin-bottom:4px;color:var(--brand)}
+
+    .section-title{font-size:20px;margin:0 0 12px}
+    .muted{color:var(--muted)}
+    ul.clean{margin:0 0 8px 18px;padding:0}
+    ul.clean li{margin:6px 0}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:860px){.grid-2{grid-template-columns:1fr}}
+
+    .dashboard{margin-top:24px}
+    .chart-card{padding:12px}
+    .chart-area{height:380px;background:#fafafa;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+    .tbl{width:100%;border-collapse:collapse}
+    .tbl th,.tbl td{padding:10px 12px;border-bottom:1px solid #eef1f6;text-align:left}
+    .tbl th{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+
+    .faq details{background:#f9fbff;border-radius:12px;padding:12px 14px;margin:8px 0;border:1px solid #e8eefc}
+    .faq summary{cursor:pointer;font-weight:700;color:var(--brand)}
+    .disclaimer{font-size:13px;color:var(--muted);margin-top:8px}
+    .center{text-align:center;margin-top:26px}
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <h1>NutriGan</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html#home">Início</a></li>
-                    <li><a href="index.html#mass-gain">Ganho de Massa</a></li>
-                    <li><a href="index.html#weight-loss">Perda de Peso</a></li>
-                    <li><a href="index.html#contact">Contato</a></li>
-                </ul>
-            </nav>
+  <div class="wrap">
+    <a class="back" href="index.html">← Voltar à Página Inicial</a>
+
+    <h1 class="page-title">L-Carnitina — Informações do Produto e Dashboard de Resultados</h1>
+
+    <!-- BLOCO DO PRODUTO -->
+    <section class="product">
+      <div class="card product__media">
+        <!-- use sua imagem local -->
+        <img src="l-carnitine.png" alt="Frasco de L-Carnitina">
+      </div>
+
+      <div class="card">
+        <div class="box">
+          <h2 class="section-title">O que é</h2>
+          <p class="muted">
+            A L-carnitina é um composto derivado de aminoácidos que auxilia no transporte de ácidos graxos de cadeia longa
+            para as mitocôndrias, onde podem ser utilizados como energia. É comumente utilizada em programas de
+            condicionamento físico e controle de peso, sempre associada a alimentação equilibrada e treino.
+          </p>
+
+          <div class="kpis">
+            <div class="kpi"><b>1000 mg</b><span class="muted">por porção</span></div>
+            <div class="kpi"><b>0 g</b><span class="muted">açúcares</span></div>
+            <div class="kpi"><b>Sem cafeína</b><span class="muted">não estimulante</span></div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section id="l-carnitine-details" class="products-section">
-            <div class="container">
-                <h2 id="product-detail-title">L-Carnitina</h2>
-                <div class="product-detail-content">
-                    <img id="product-detail-image" src="l-carnitine.png" alt="L-Carnitina">
-                    <p id="product-detail-description">A L-Carnitina é um composto derivado de aminoácidos que desempenha um papel crucial no metabolismo energético do corpo. Sua principal função é transportar ácidos graxos de cadeia longa para as mitocôndrias (as "usinas de energia" das células), onde são oxidados para produzir energia. Isso a torna um suplemento popular para quem busca otimizar a queima de gordura e melhorar o desempenho em exercícios aeróbicos.</p>
-                    <h3>Benefícios Detalhados</h3>
-                    <ul id="product-detail-benefits">
-                        <li><strong>Otimiza a Queima de Gordura para Energia:</strong> Ao facilitar o transporte de gorduras para as mitocôndrias, a L-Carnitina ajuda o corpo a usar a gordura armazenada como principal fonte de combustível, especialmente durante o exercício.</li>
-                        <li><strong>Melhora a Performance e Resistência em Exercícios Aeróbicos:</strong> Com o aumento da disponibilidade de gordura para energia, o corpo pode poupar as reservas de glicogênio, permitindo treinos mais longos e com maior intensidade, e melhorando a resistência.</li>
-                        <li><strong>Pode Reduzir a Fadiga e o Dano Muscular:</strong> Alguns estudos sugerem que a L-Carnitina pode atenuar a produção de radicais livres e o estresse oxidativo, o que pode levar a uma redução da fadiga e do dano muscular pós-exercício.</li>
-                        <li><strong>Auxilia na Recuperação Pós-Exercício:</strong> Ao reduzir o dano muscular e melhorar o fluxo sanguíneo, a L-Carnitina pode acelerar o processo de recuperação, diminuindo a dor muscular e o tempo de descanso necessário.</li>
-                        <li><strong>Benefícios para a Saúde Cardiovascular:</strong> A L-Carnitina pode ter um papel na saúde do coração, ajudando a melhorar a função cardíaca e a reduzir os marcadores de estresse cardiovascular.</li>
-                    </ul>
-                    <h3>Sugestão de Uso</h3>
-                    <p id="product-detail-suggestion">A dose mais comum e eficaz de L-Carnitina varia de 1 a 3 gramas por dia. Pode ser consumida:
-                        <ul>
-                            <li><strong>Antes do Treino:</strong> Preferencialmente 30-60 minutos antes da atividade física para maximizar a utilização da gordura como energia durante o exercício.</li>
-                            <li><strong>Com Refeições:</strong> Em dias de não treino, pode ser tomada com uma refeição para auxiliar na absorção e manutenção dos níveis.</li>
-                        </ul>
-                        A L-Carnitina está disponível em diversas formas, incluindo líquida, cápsulas e pó. Escolha a forma que melhor se adapta à sua rotina.
-                    </p>
-                    <h3>Dashboard de Resultados - Eficiência da L-Carnitina na Utilização de Gordura</h3>
-                    <div class="dashboard-chart">
-                        <canvas id="resultsChart"></canvas>
-                    </div>
-                    <a href="index.html" class="btn">Voltar à Página Inicial</a>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- INFO DETALHADA -->
+    <section class="grid-2">
+      <div class="card"><div class="box">
+        <h3 class="section-title">Principais benefícios (potenciais)</h3>
+        <ul class="clean">
+          <li>Suporte ao metabolismo de gorduras durante o exercício;</li>
+          <li>Ajuda na recuperação energética pós-treino;</li>
+          <li>Opção sem cafeína para rotinas noturnas.</li>
+        </ul>
+        <p class="disclaimer">Benefícios variam conforme dieta, treino e individualidade biológica.</p>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        <h3 class="section-title" style="margin-top:14px">Como usar</h3>
+        <ul class="clean">
+          <li>Dose típica: <b>500–2.000&nbsp;mg/dia</b> (conforme orientação profissional);</li>
+          <li>Tomar 30–60 min antes do treino ou com refeição contendo carboidratos;</li>
+          <li>Formas comuns: líquida, cápsulas ou pó.</li>
+        </ul>
+      </div></div>
+
+      <div class="card"><div class="box">
+        <h3 class="section-title">Composição por porção (exemplo)</h3>
+        <ul class="clean">
+          <li>L-Carnitina (base ou L-Carnitina L-Tartarato): <b>1000&nbsp;mg</b>;</li>
+          <li>Sem glúten • Sem lactose • Sem estimulantes.</li>
+        </ul>
+
+        <h3 class="section-title" style="margin-top:14px">Atenção e segurança</h3>
+        <ul class="clean">
+          <li>Uso por gestantes, lactantes, pessoas com condições médicas ou em uso de medicamentos: <b>consulte seu profissional de saúde</b>;</li>
+          <li>Possíveis efeitos: leve desconforto gastrointestinal ou odor corporal em doses altas;</li>
+          <li>Manter fora do alcance de crianças e armazenar ao abrigo de luz e calor.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+      <div class="card chart-card">
+        <div class="box">
+          <h2 class="section-title">Dashboard de Resultados — Eficiência na Utilização de Gordura</h2>
+          <p class="muted" style="margin-top:-4px">
+            Exemplo ilustrativo de evolução de oxidação de gordura em programa de 8 semanas
+            (grupo controle vs. com L-carnitina, associado a treino e alimentação).
+          </p>
         </div>
-    </footer>
+        <div class="chart-area">
+          <canvas id="resultsChart" aria-label="Gráfico de resultados"></canvas>
+        </div>
 
-    <script type="module">
-        import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-        import { productsData } from './data.js';
+        <div class="box" style="padding-top:6px">
+          <table class="tbl" aria-label="Tabela resumo do dashboard">
+            <thead>
+              <tr><th>Semana</th><th>Controle (%, média)</th><th>Com L-Carnitina (%, média)</th></tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- preenchido pelo script abaixo -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const product = productsData['l-carnitine'];
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="card"><div class="box">
+        <h2 class="section-title">Perguntas frequentes</h2>
+        <details>
+          <summary>Preciso tomar todos os dias?</summary>
+          <p class="muted">Muitas rotinas usam diariamente, mas a frequência ideal depende do protocolo definido pelo seu profissional.</p>
+        </details>
+        <details>
+          <summary>Posso combinar com cafeína ou termogênicos?</summary>
+          <p class="muted">É comum combinar, mas avalie tolerância individual e evite excesso de estimulantes. Procure orientação qualificada.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo para perceber resultados?</summary>
+          <p class="muted">Varia conforme dieta/treino; protocolos de 4–8 semanas são usuais para reavaliação.</p>
+        </details>
+      </div></div>
+    </section>
 
-            if (product) {
-                // Render chart
-                const ctx = document.getElementById('resultsChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'line', // You can change this to 'bar', 'pie', etc.
-                    data: product.chartData,
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'top',
-                                labels: {
-                                    font: {
-                                        size: 14,
-                                        family: 'Roboto'
-                                    },
-                                    color: '#333'
-                                }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return context.dataset.label + ': ' + context.raw;
-                                    }
-                                }
-                            }
-                        },
-                        scales: {
-                            x: {
-                                title: {
-                                    display: true,
-                                    text: 'Mês de Uso',
-                                    color: '#555',
-                                    font: {
-                                        size: 14,
-                                        family: 'Roboto',
-                                        weight: 'bold'
-                                    }
-                                },
-                                ticks: {
-                                    color: '#666',
-                                    font: {
-                                        family: 'Roboto'
-                                    }
-                                }
-                            },
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Gordura Utilizada como Energia (unidades arbitrárias)',
-                                    color: '#555',
-                                    font: {
-                                        size: 14,
-                                        family: 'Roboto',
-                                        weight: 'bold'
-                                    }
-                                },
-                                ticks: {
-                                    color: '#666',
-                                    font: {
-                                        family: 'Roboto'
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
+    <div class="center">
+      <a class="back" href="index.html">Voltar à Página Inicial</a>
+    </div>
+  </div>
+
+  <!-- Chart.js (UMD, funciona sem módulos) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Script do dashboard -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const labels = ['0', '2', '4', '6', '8']; // semanas
+      // dados ilustrativos
+      const controle = [0, 4, 7, 9, 11];
+      const comCarnitina = [0, 8, 14, 17, 20];
+
+      // Tabela
+      const tbody = document.getElementById('tableBody');
+      labels.forEach((sem, i) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML =
+          `<td>${sem === '0' ? 'Início' : sem + 'ª'}</td>
+           <td>${controle[i].toFixed(0)}%</td>
+           <td>${comCarnitina[i].toFixed(0)}%</td>`;
+        tbody.appendChild(tr);
+      });
+
+      // Gráfico
+      const ctx = document.getElementById('resultsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels.map(s => (s==='0'?'Início':s+'ª semana')),
+          datasets: [
+            {
+              label: 'Controle',
+              data: controle,
+              borderWidth: 2,
+              tension: 0.3,
+              fill: false
+            },
+            {
+              label: 'Com L-Carnitina',
+              data: comCarnitina,
+              borderWidth: 2,
+              tension: 0.3,
+              fill: false
             }
-        });
-    </script>
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: true } },
+          scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 5 }, title: { display:true, text:'Oxidação de gordura (%)' } },
+            x: { title: { display:true, text:'Semanas' } }
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
