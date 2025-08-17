@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creatina - NutriGan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NutriGan</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#mass-gain">Ganho de Massa</a></li>
+                    <li><a href="index.html#weight-loss">Perda de Peso</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="creatine-details" class="products-section">
+            <div class="container">
+                <h2 id="product-detail-title">Creatina</h2>
+                <div class="product-detail-content">
+                    <img id="product-detail-image" src="creatine.png" alt="Creatina">
+                    <p id="product-detail-description">A Creatina é um dos suplementos mais estudados e eficazes para melhorar o desempenho físico, especialmente em exercícios de alta intensidade e curta duração. É um composto natural derivado de aminoácidos, armazenado principalmente nos músculos, onde desempenha um papel crucial na produção de energia.</p>
+                    <h3>Benefícios Detalhados</h3>
+                    <ul id="product-detail-benefits">
+                        <li><strong>Aumento de Força e Potência Muscular:</strong> A creatina aumenta a disponibilidade de ATP (adenosina trifosfato), a principal fonte de energia para contrações musculares rápidas e explosivas, permitindo levantar mais peso e realizar mais repetições.</li>
+                        <li><strong>Melhora do Desempenho em Exercícios de Alta Intensidade:</strong> Ideal para atividades como levantamento de peso, sprints e esportes que exigem rajadas rápidas de energia, a creatina permite treinos mais intensos e eficazes.</li>
+                        <li><strong>Favorece o Ganho de Massa Muscular Magra:</strong> Ao aumentar a força e a capacidade de trabalho, a creatina indiretamente estimula o crescimento muscular. Além disso, pode promover a retenção de água intramuscular, o que confere um aspecto mais volumoso aos músculos.</li>
+                        <li><strong>Auxilia na Recuperação Muscular:</strong> Ajuda a reduzir o dano celular e a inflamação após o exercício intenso, acelerando a recuperação e permitindo que os músculos se reparem mais rapidamente.</li>
+                        <li><strong>Possíveis Benefícios Cognitivos:</strong> Estudos sugerem que a creatina pode ter um papel na função cerebral, melhorando a memória e a inteligência, especialmente em situações de estresse ou privação de sono.</li>
+                    </ul>
+                    <h3>Sugestão de Uso</h3>
+                    <p id="product-detail-suggestion">A dose mais comum e recomendada é de 3 a 5 gramas de creatina por dia. Diferente de outros suplementos, o momento da ingestão não é tão crítico, pois a creatina atua por saturação nos músculos.
+                        <ul>
+                            <li><strong>Diariamente:</strong> Consuma 3-5g todos os dias, incluindo dias de treino e dias de descanso.</li>
+                            <li><strong>Momento:</strong> Pode ser tomada a qualquer hora do dia, mas muitos preferem após o treino junto com um carboidrato para otimizar a absorção.</li>
+                            <li><strong>Hidratação:</strong> É fundamental beber bastante água ao suplementar com creatina para garantir a hidratação e otimizar seus efeitos.</li>
+                        </ul>
+                        Não é necessário fazer "saturação" (doses maiores nos primeiros dias), mas se desejar resultados mais rápidos, pode-se consumir 20g/dia (divididos em 4 doses de 5g) por 5-7 dias, seguido da dose de manutenção.
+                    </p>
+                    <h3>Dashboard de Resultados - Aumento de Carga em Exercícios</h3>
+                    <div class="dashboard-chart">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+                    <a href="index.html" class="btn">Voltar à Página Inicial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
+        import { productsData } from './data.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = productsData['creatine'];
+
+            if (product) {
+                // Render chart
+                const ctx = document.getElementById('resultsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line', // You can change this to 'bar', 'pie', etc.
+                    data: {
+                        labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8'],
+                        datasets: [{
+                            label: 'Aumento de Carga (kg)',
+                            data: [2, 5, 8, 10, 12, 15, 17, 19],
+                            backgroundColor: 'rgba(0, 123, 255, 0.6)',
+                            borderColor: 'rgba(0, 123, 255, 1)',
+                            borderWidth: 2,
+                            tension: 0.3, // Makes the line a bit curved
+                            pointBackgroundColor: 'rgba(0, 123, 255, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 1,
+                            pointRadius: 5,
+                            fill: true // Fill the area under the line
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto'
+                                    },
+                                    color: '#333'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw + 'kg';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Período de Uso',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    }
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Ganho de Carga (kg)',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    },
+                                    stepSize: 2
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

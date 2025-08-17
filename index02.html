@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whey Protein - NutriGan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NutriGan</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#mass-gain">Ganho de Massa</a></li>
+                    <li><a href="index.html#weight-loss">Perda de Peso</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="whey-protein-details" class="products-section">
+            <div class="container">
+                <h2 id="product-detail-title">Whey Protein</h2>
+                <div class="product-detail-content">
+                    <img id="product-detail-image" src="whey-protein.png" alt="Whey Protein">
+                    <p id="product-detail-description">Fundamental para a recuperação e crescimento muscular. Rico em aminoácidos essenciais, o Whey Protein é a proteína do soro do leite, de alto valor biológico e rápida absorção. É amplamente utilizado por atletas e praticantes de atividades físicas para otimizar os resultados de seus treinos.</p>
+                    <h3>Benefícios Detalhados</h3>
+                    <ul id="product-detail-benefits">
+                        <li><strong>Rápida Absorção e Digestão:</strong> Por ser uma proteína de alta qualidade, é rapidamente absorvida pelo corpo, fornecendo aminoácidos aos músculos de forma eficiente, ideal para o pós-treino.</li>
+                        <li><strong>Recuperação Muscular Aprimorada Pós-Treino:</strong> Ajuda a reparar o tecido muscular danificado durante o exercício, acelerando a recuperação e reduzindo a dor muscular.</li>
+                        <li><strong>Estimula a Síntese Proteica:</strong> Rico em Leucina, um aminoácido chave que ativa a via mTOR, essencial para iniciar a construção de novas proteínas musculares.</li>
+                        <li><strong>Auxilia no Ganho de Massa Muscular Magra:</strong> Fornece os blocos construtores necessários para o crescimento muscular, especialmente quando combinado com treinamento de força.</li>
+                        <li><strong>Pode Contribuir para a Saciedade e Controle de Peso:</strong> Proteínas são mais saciantes do que carboidratos e gorduras, auxiliando na redução do apetite e na manutenção de uma dieta equilibrada para perda ou manutenção de peso.</li>
+                        <li><strong>Fortalecimento do Sistema Imunológico:</strong> Contém imunoglobulinas e lactoferrina, que podem apoiar a função imunológica.</li>
+                    </ul>
+                    <h3>Sugestão de Uso</h3>
+                    <p id="product-detail-suggestion">A dose mais comum é de 20-40g por porção. Misture uma dose com 200-300ml de água, leite ou sua bebida preferida em um shaker.
+                        <ul>
+                            <li><strong>Imediatamente Após o Treino:</strong> Momento ideal para aproveitar a "janela anabólica" e otimizar a recuperação e o crescimento muscular.</li>
+                            <li><strong>Ao Acordar:</strong> Para quebrar o jejum noturno e fornecer nutrientes aos músculos.</li>
+                            <li><strong>Entre Refeições:</strong> Como um lanche proteico para manter a ingestão adequada de proteínas ao longo do dia e promover a saciedade.</li>
+                            <li><strong>Antes de Dormir (Caseína):</strong> Embora o Whey seja de rápida absorção, algumas misturas com caseína (proteína de digestão lenta) são boas para a noite.</li>
+                        </ul>
+                        Consulte um nutricionista para uma dosagem e plano de uso personalizados.
+                    </p>
+                    <h3>Dashboard de Resultados - Efeito do Whey Protein no Ganho de Massa Muscular</h3>
+                    <div class="dashboard-chart">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+                    <a href="index.html" class="btn">Voltar à Página Inicial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
+        import { productsData } from './data.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = productsData['whey-protein'];
+
+            if (product) {
+                // Render chart
+                const ctx = document.getElementById('resultsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6', 'Mês 7', 'Mês 8'],
+                        datasets: [{
+                            label: 'Ganho de Massa Muscular (kg)',
+                            data: [0.5, 1.2, 1.8, 2.5, 3.0, 3.5, 3.8, 4.2],
+                            backgroundColor: 'rgba(40, 167, 69, 0.6)',
+                            borderColor: 'rgba(40, 167, 69, 1)',
+                            borderWidth: 2,
+                            tension: 0.3,
+                            pointBackgroundColor: 'rgba(40, 167, 69, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 1,
+                            pointRadius: 5,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto'
+                                    },
+                                    color: '#333'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw + ' kg';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Período de Uso',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    }
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Massa Muscular Ganhada (kg)',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    },
+                                    stepSize: 0.5
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-Carnitina - NutriGan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NutriGan</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#mass-gain">Ganho de Massa</a></li>
+                    <li><a href="index.html#weight-loss">Perda de Peso</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="l-carnitine-details" class="products-section">
+            <div class="container">
+                <h2 id="product-detail-title">L-Carnitina</h2>
+                <div class="product-detail-content">
+                    <img id="product-detail-image" src="l-carnitine.png" alt="L-Carnitina">
+                    <p id="product-detail-description">A L-Carnitina é um composto derivado de aminoácidos que desempenha um papel crucial no metabolismo energético do corpo. Sua principal função é transportar ácidos graxos de cadeia longa para as mitocôndrias (as "usinas de energia" das células), onde são oxidados para produzir energia. Isso a torna um suplemento popular para quem busca otimizar a queima de gordura e melhorar o desempenho em exercícios aeróbicos.</p>
+                    <h3>Benefícios Detalhados</h3>
+                    <ul id="product-detail-benefits">
+                        <li><strong>Otimiza a Queima de Gordura para Energia:</strong> Ao facilitar o transporte de gorduras para as mitocôndrias, a L-Carnitina ajuda o corpo a usar a gordura armazenada como principal fonte de combustível, especialmente durante o exercício.</li>
+                        <li><strong>Melhora a Performance e Resistência em Exercícios Aeróbicos:</strong> Com o aumento da disponibilidade de gordura para energia, o corpo pode poupar as reservas de glicogênio, permitindo treinos mais longos e com maior intensidade, e melhorando a resistência.</li>
+                        <li><strong>Pode Reduzir a Fadiga e o Dano Muscular:</strong> Alguns estudos sugerem que a L-Carnitina pode atenuar a produção de radicais livres e o estresse oxidativo, o que pode levar a uma redução da fadiga e do dano muscular pós-exercício.</li>
+                        <li><strong>Auxilia na Recuperação Pós-Exercício:</strong> Ao reduzir o dano muscular e melhorar o fluxo sanguíneo, a L-Carnitina pode acelerar o processo de recuperação, diminuindo a dor muscular e o tempo de descanso necessário.</li>
+                        <li><strong>Benefícios para a Saúde Cardiovascular:</strong> A L-Carnitina pode ter um papel na saúde do coração, ajudando a melhorar a função cardíaca e a reduzir os marcadores de estresse cardiovascular.</li>
+                    </ul>
+                    <h3>Sugestão de Uso</h3>
+                    <p id="product-detail-suggestion">A dose mais comum e eficaz de L-Carnitina varia de 1 a 3 gramas por dia. Pode ser consumida:
+                        <ul>
+                            <li><strong>Antes do Treino:</strong> Preferencialmente 30-60 minutos antes da atividade física para maximizar a utilização da gordura como energia durante o exercício.</li>
+                            <li><strong>Com Refeições:</strong> Em dias de não treino, pode ser tomada com uma refeição para auxiliar na absorção e manutenção dos níveis.</li>
+                        </ul>
+                        A L-Carnitina está disponível em diversas formas, incluindo líquida, cápsulas e pó. Escolha a forma que melhor se adapta à sua rotina.
+                    </p>
+                    <h3>Dashboard de Resultados - Eficiência da L-Carnitina na Utilização de Gordura</h3>
+                    <div class="dashboard-chart">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+                    <a href="index.html" class="btn">Voltar à Página Inicial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
+        import { productsData } from './data.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = productsData['l-carnitine'];
+
+            if (product) {
+                // Render chart
+                const ctx = document.getElementById('resultsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line', // You can change this to 'bar', 'pie', etc.
+                    data: product.chartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto'
+                                    },
+                                    color: '#333'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Mês de Uso',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    }
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Gordura Utilizada como Energia (unidades arbitrárias)',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

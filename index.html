@@ -1,67 +1,152 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Links</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: rgba(0, 0, 0, 0.8); /* Fundo escuro com opacidade */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: sans-serif;
-    }
-
-    .popup {
-      background: #1e1e1e;
-      border-radius: 10px;
-      padding: 20px;
-      width: 90%;
-      max-width: 350px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    }
-
-    .popup h2 {
-      color: white;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .link-btn {
-      display: flex;
-      align-items: center;
-      background-color: #333;
-      color: white;
-      padding: 12px;
-      border-radius: 8px;
-      margin: 10px 0;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .link-btn:hover {
-      background-color: #555;
-    }
-
-    .icon {
-      margin-right: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriGan - Suplementos para Ganho de Massa e Perda de Peso</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="popup">
-    <h2>Links</h2>
-    <a class="link-btn" href="https://wa.me/message/2XJX2MFF4GGK1" target="_blank">
-      <span class="icon">🔗</span> Compre Pelo WHATSAPP!
-    </a>
-    <a class="link-btn" href="https://wa.me/message/2XJX2MFF4GGK1" target="_blank">
-      <span class="icon">💬</span> Fale Com Nosso Atendente!
-    </a>
-  </div>
+    <header>
+        <div class="container">
+            <h1>NutriGan</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#mass-gain">Ganho de Massa</a></li>
+                    <li><a href="#weight-loss">Perda de Peso</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <img src="tema.png" alt="Mulher treinando na academia" class="hero-image">
+                <h2>Seu Guia Essencial para Suplementos Nutricionais</h2>
+                <p>Descubra as melhores opções para otimizar seu ganho de massa muscular e sua jornada de perda de peso.</p>
+                
+            </div>
+        </section>
+
+        <section id="mass-gain" class="products-section">
+            <div class="container">
+                <h2>Suplementos para Ganho de Massa Muscular</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="whey-protein.png" alt="Whey Protein">
+                        <h3>Whey Protein</h3>
+                        <p>Fundamental para a recuperação e crescimento muscular. Rico em aminoácidos essenciais.</p>
+                        <ul>
+                            <li><strong>Benefícios:</strong> Rápida absorção, recuperação pós-treino, síntese proteica.</li>
+                            <li><strong>Sugestão:</strong> Tomar após o treino ou como lanche proteico.</li>
+                        </ul>
+                        <button class="btn view-details" data-product="whey-protein" onclick="window.location.href='index02.html'">Ver Detalhes</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="creatine.png" alt="Creatina">
+                        <h3>Creatina</h3>
+                        <p>Aumenta a força, potência e o desempenho em exercícios de alta intensidade.</p>
+                        <ul>
+                            <li><strong>Benefícios:</strong> Aumento de força, melhor desempenho em treinos, ganho de massa magra.</li>
+                            <li><strong>Sugestão:</strong> 3-5g por dia, a qualquer hora.</li>
+                        </ul>
+                        <button class="btn view-details" data-product="creatine" onclick="window.location.href='index03.html'">Ver Detalhes</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="bcaa.png" alt="BCAA">
+                        <h3>BCAA</h3>
+                        <p>Aminoácidos de cadeia ramificada que auxiliam na recuperação muscular e previnem o catabolismo.</p>
+                        <ul>
+                            <li><strong>Benefícios:</strong> Redução da fadiga, prevenção do catabolismo, suporte à recuperação.</li>
+                            <li><strong>Sugestão:</strong> Antes ou durante o treino.</li>
+                        </ul>
+                        <button class="btn view-details" data-product="bcaa" onclick="window.location.href='index01.html'">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="weight-loss" class="products-section">
+            <div class="container">
+                <h2>Suplementos para Perda de Peso</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="thermogenic.png" alt="Termogênico">
+                        <h3>Termogênico</h3>
+                        <p>Acelera o metabolismo e promove a queima de gordura. Geralmente contém cafeína e outros extratos.</p>
+                        <ul>
+                            <li><strong>Benefícios:</strong> Aumento do gasto calórico, mais energia, redução do apetite.</li>
+                            <li><strong>Sugestão:</strong> Conforme indicação do fabricante, evitar antes de dormir.</li>
+                        </ul>
+                        <button class="btn view-details" data-product="thermogenic" onclick="window.location.href='index04.html'">Ver Detalhes</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="l-carnitine.png" alt="L-Carnitina">
+                        <h3>L-Carnitina</h3>
+                        <p>Transporta ácidos graxos para as mitocôndrias, onde são queimados para energia.</p>
+                        <ul>
+                            <li><strong>Benefícios:</strong> Otimiza a queima de gordura, melhora a performance em exercícios.</li>
+                            <li><strong>Sugestão:</strong> Antes do treino.</li>
+                        </ul>
+                        <button class="btn view-details" data-product="l-carnitine" onclick="window.location.href='index05.html'">Ver Detalhes</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="fiber.png" alt="Fibra">
+                        <h3>Suplementos de Fibra</h3>
+                        <p>Promovem saciedade, melhoram o trânsito intestinal e auxiliam no controle do apetite.</p>
+                        <ul>
+                            <li><strong>Benefícios:</strong> Saciedade, saúde intestinal, controle do açúcar no sangue.</li>
+                            <li><strong>Sugestão:</strong> Com bastante água, em qualquer momento do dia.</li>
+                        </ul>
+                        <button class="btn view-details" data-product="fiber" onclick="window.location.href='index06.html'">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <p>Tem dúvidas ou precisa de uma consultoria personalizada? Fale conosco!</p>
+                <form>
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="email" placeholder="Seu Email" required>
+                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="">
+                <p id="modal-description"></p>
+                <h3>Benefícios</h3>
+                <ul id="modal-benefits"></ul>
+                <h3>Sugestão de Uso</h3>
+                <p id="modal-suggestion"></p>
+                <h3>Dashboard de Resultados</h3>
+                <div class="dashboard-chart">
+                    <canvas id="resultsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    
 </body>
 </html>

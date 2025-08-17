@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCAA - NutriGan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NutriGan</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#mass-gain">Ganho de Massa</a></li>
+                    <li><a href="index.html#weight-loss">Perda de Peso</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="bcaa-details" class="products-section">
+            <div class="container">
+                <h2 id="product-detail-title">BCAA</h2>
+                <div class="product-detail-content">
+                    <img id="product-detail-image" src="bcaa.png" alt="BCAA">
+                    <p id="product-detail-description">Aminoácidos de cadeia ramificada (Leucina, Isoleucina e Valina) que auxiliam na recuperação muscular, previnem o catabolismo (perda de massa muscular) e reduzem a fadiga durante o exercício. São considerados "blocos construtores" de proteínas, essenciais para quem busca otimizar o desempenho e a recuperação no treino.</p>
+                    <h3>Benefícios Detalhados</h3>
+                    <ul id="product-detail-benefits">
+                        <li><strong>Redução da Fadiga:</strong> BCAAs podem competir com o triptofano (precursor da serotonina) no cérebro, ajudando a diminuir a percepção de fadiga durante exercícios prolongados.</li>
+                        <li><strong>Prevenção do Catabolismo Muscular:</strong> Durante treinos intensos ou em períodos de dieta restritiva, o corpo pode usar o músculo como fonte de energia. A suplementação com BCAA ajuda a preservar a massa muscular existente.</li>
+                        <li><strong>Suporte à Recuperação e Reparo Muscular:</strong> A leucina, em particular, é crucial para iniciar a síntese de proteínas musculares, acelerando o processo de recuperação e reparo após o exercício.</li>
+                        <li><strong>Auxílio na Síntese de Proteínas:</strong> Fornece os aminoácidos necessários para a construção de novas proteínas musculares, contribuindo diretamente para o crescimento da massa magra.</li>
+                        <li><strong>Melhora da Performance em Exercícios Prolongados:</strong> Ao retardar a fadiga e preservar o glicogênio muscular, os BCAAs permitem treinos mais longos e com maior intensidade.</li>
+                    </ul>
+                    <h3>Sugestão de Uso</h3>
+                    <p id="product-detail-suggestion">A dose mais comum e estudada varia de 5 a 10g de BCAAs. Pode ser consumido em diferentes momentos:
+                        <ul>
+                            <li><strong>Antes do Treino:</strong> Para fornecer energia aos músculos e prevenir o catabolismo.</li>
+                            <li><strong>Durante o Treino:</strong> Para manter os níveis de energia, reduzir a fadiga e prolongar o desempenho.</li>
+                            <li><strong>Após o Treino:</strong> Para iniciar a recuperação e a síntese proteica.</li>
+                            <li><strong>Em Dias de Não Treino:</strong> Pode ser tomado com as refeições para garantir a ingestão adequada de aminoácidos, especialmente em dietas com restrição calórica.</li>
+                        </ul>
+                        Misture o pó com água ou sua bebida preferida. Mantenha-se bem hidratado.
+                    </p>
+                    <h3>Dashboard de Resultados - Efeito do BCAA na Fadiga Percebida</h3>
+                    <div class="dashboard-chart">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+                    <a href="index.html" class="btn">Voltar à Página Inicial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
+        import { productsData } from './data.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = productsData['bcaa'];
+
+            if (product) {
+                // Render chart
+                const ctx = document.getElementById('resultsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line', // You can change this to 'bar', 'pie', etc.
+                    data: {
+                        labels: ['Treino 1', 'Treino 2', 'Treino 3', 'Treino 4', 'Treino 5', 'Treino 6', 'Treino 7', 'Treino 8'],
+                        datasets: [{
+                            label: 'Nível de Fadiga Percebida (1-10)',
+                            data: [7, 6.8, 6.5, 6.2, 5.9, 5.5, 5.2, 5],
+                            backgroundColor: 'rgba(255, 193, 7, 0.6)',
+                            borderColor: 'rgba(255, 193, 7, 1)',
+                            borderWidth: 2,
+                            tension: 0.3, // Makes the line a bit curved
+                            pointBackgroundColor: 'rgba(255, 193, 7, 1)',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 1,
+                            pointRadius: 5,
+                            fill: true // Fill the area under the line
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto'
+                                    },
+                                    color: '#333'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Sessão de Treino',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    }
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                max: 10, // Max fatigue level
+                                title: {
+                                    display: true,
+                                    text: 'Fadiga Percebida (Escala)',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    },
+                                    stepSize: 1
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

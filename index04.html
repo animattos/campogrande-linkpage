@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termogênico - NutriGan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>NutriGan</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Início</a></li>
+                    <li><a href="index.html#mass-gain">Ganho de Massa</a></li>
+                    <li><a href="index.html#weight-loss">Perda de Peso</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="thermogenic-details" class="products-section">
+            <div class="container">
+                <h2 id="product-detail-title">Termogênico</h2>
+                <div class="product-detail-content">
+                    <img id="product-detail-image" src="thermogenic.png" alt="Termogênico">
+                    <p id="product-detail-description">Acelera o metabolismo e promove a queima de gordura. Geralmente contém cafeína e outros extratos naturais que aumentam o gasto energético do corpo e a oxidação de gorduras. É um aliado popular para quem busca otimizar a perda de peso e a definição muscular.</p>
+                    <h3>Benefícios Detalhados</h3>
+                    <ul id="product-detail-benefits">
+                        <li><strong>Aumento do Gasto Calórico e Queima de Gordura:</strong> Os termogênicos estimulam o corpo a gastar mais energia, mesmo em repouso, e a utilizar as reservas de gordura como combustível, favorecendo a redução do percentual de gordura corporal.</li>
+                        <li><strong>Mais Energia e Disposição para o Treino:</strong> Ingredientes como a cafeína são potentes estimulantes do sistema nervoso central, proporcionando um "boost" de energia, melhorando o foco e a performance em atividades físicas.</li>
+                        <li><strong>Redução do Apetite e Controle da Fome:</strong> Alguns componentes dos termogênicos podem atuar como supressores de apetite, ajudando a controlar a ingestão calórica e facilitando a adesão a dietas de emagrecimento.</li>
+                        <li><strong>Melhora do Foco e da Concentração:</strong> A estimulação proporcionada pela cafeína e outros compostos também pode resultar em maior clareza mental e concentração, tanto nos treinos quanto nas atividades diárias.</li>
+                        <li><strong>Auxílio na Definição Muscular:</strong> Ao promover a queima de gordura e, em alguns casos, preservar a massa muscular, os termogênicos contribuem para um físico mais definido e esteticamente agradável.</li>
+                    </ul>
+                    <h3>Sugestão de Uso</h3>
+                    <p id="product-detail-suggestion">É crucial seguir as recomendações do fabricante na embalagem do produto, pois a dosagem pode variar. No entanto, as diretrizes gerais são:
+                        <ul>
+                            <li><strong>Dose Inicial:</strong> Comece com a menor dose recomendada para avaliar sua tolerância.</li>
+                            <li><strong>Horário de Consumo:</strong> Geralmente, 1 ou 2 cápsulas pela manhã e/ou antes do treino. Evite tomar próximo ao horário de dormir (pelo menos 6 horas antes) para não prejudicar a qualidade do sono devido à cafeína.</li>
+                            <li><strong>Com Alimentos:</strong> Alguns termogênicos podem ser tomados com alimentos para reduzir possíveis desconfortos gástricos.</li>
+                        </ul>
+                        Não exceda a dose diária recomendada. Consulte um profissional de saúde antes de iniciar o uso, especialmente se tiver condições médicas preexistentes ou estiver usando outros medicamentos.
+                    </p>
+                    <h3>Dashboard de Resultados - Eficiência do Termogênico na Perda de Gordura</h3>
+                    <div class="dashboard-chart">
+                        <canvas id="resultsChart"></canvas>
+                    </div>
+                    <a href="index.html" class="btn">Voltar à Página Inicial</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 NutriGan. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { Chart } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
+        import { productsData } from './data.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = productsData['thermogenic'];
+
+            if (product) {
+                // Render chart
+                const ctx = document.getElementById('resultsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line', 
+                    data: {
+                        labels: product.chartData.labels,
+                        datasets: [{
+                            label: product.chartData.datasets[0].label,
+                            data: product.chartData.datasets[0].data,
+                            backgroundColor: product.chartData.datasets[0].backgroundColor,
+                            borderColor: product.chartData.datasets[0].borderColor,
+                            borderWidth: 2,
+                            tension: 0.3,
+                            pointBackgroundColor: product.chartData.datasets[0].borderColor,
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 1,
+                            pointRadius: 5,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto'
+                                    },
+                                    color: '#333'
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Período',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    }
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Perda de Gordura Corporal (%)',
+                                    color: '#555',
+                                    font: {
+                                        size: 14,
+                                        family: 'Roboto',
+                                        weight: 'bold'
+                                    }
+                                },
+                                ticks: {
+                                    color: '#666',
+                                    font: {
+                                        family: 'Roboto'
+                                    },
+                                    callback: function(value) {
+                                        return value + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
