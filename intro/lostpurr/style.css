@@ -27,6 +27,44 @@ body{
   text-align:center;
   padding:18px 12px 10px;
 }
+
+/* ======= Hamburger (mobile) ======= */
+.hamburger{
+  display:none;
+  width:44px; height:38px;
+  background:transparent; border:0; cursor:pointer;
+  position:absolute; right:12px; top:12px;
+}
+.hamburger span{
+  display:block; height:3px; margin:6px 0; background:#fff; border-radius:2px;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.hamburger.is-open span:nth-child(1){ transform: translateY(9px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2){ opacity:0; }
+.hamburger.is-open span:nth-child(3){ transform: translateY(-9px) rotate(-45deg); }
+
+/* Menu colapsado no mobile */
+@media (max-width:880px){
+  .hamburger{ display:block; }
+
+  .site-header .topbar{
+    padding-top: 18px; padding-bottom: 10px;
+  }
+
+  .nav{
+    flex-direction:column;
+    width:100%;
+    gap:12px;
+    background:var(--brand);
+    max-height:0; overflow:hidden; padding:0;
+    transition:max-height .3s ease, padding .3s ease;
+  }
+  .nav.open{
+    max-height:260px;
+    padding:8px 0 12px;
+  }
+}
+
 .brand{ margin:0; font-weight:900; letter-spacing:.6px; }
 .nav{ display:flex; gap:22px; justify-content:center; margin-top:6px; flex-wrap:wrap; }
 .nav a{ color:#e7f1ff; text-decoration:none; font-size:12px; font-weight:700; letter-spacing:.4px; }
