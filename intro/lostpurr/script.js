@@ -56,7 +56,7 @@ nav?.querySelectorAll('a').forEach(a => {
     if (ok){
       msg.style.color = '#15803d';
       msg.textContent = 'Código válido! Redirecionando...';
-      setTimeout(() => { window.location.href = 'teste.html'; }, 400);
+      setTimeout(() => { window.location.href = 'livro/index.html'; }, 400);
     }else{
       msg.style.color = '#b91c1c';
       msg.textContent = 'Código inválido. Tente novamente.';
