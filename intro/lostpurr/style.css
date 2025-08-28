@@ -109,9 +109,52 @@ input#code:focus{
 .footer p{ margin: 0; }
 
 /* ======= Responsive ======= */
-@media (max-width: 860px){
-  .card{ grid-template-columns: 1fr; }
-  .cover-col{ order:1 }
-  .content-col{ order:2 }
-  .title{ font-size:30px }
+@media (max-width: 980px){
+  /* nada aqui por enquanto */
 }
+
+/* Coluna única abaixo de 860px + ajustes de espaçamento */
+@media (max-width: 860px){
+  .card{
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .cover{               /* capa centralizada e com limite de largura */
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .title{ font-size: 30px; margin-top: 6px; }
+  .desc{ font-size: 15px; }
+  .author{ margin-top: 12px; }
+  /* mantém 3 colunas, mas encurta o botão para caber melhor nesse range */
+  .access-row{
+    grid-template-columns: 48px 1fr 72px;
+    gap: 12px;
+  }
+  .btn-go{ width: 72px; }
+}
+
+/* Empilha os campos abaixo de ~560px (celulares estreitos) */
+@media (max-width: 560px){
+  .access-row{
+    grid-template-columns: 1fr;     /* vira uma coluna */
+    grid-auto-rows: auto;
+    gap: 10px;
+  }
+  .phones{
+    width: 36px; height: 36px;
+    justify-self: start;
+    order: 1;
+  }
+  input#code{
+    width: 100%;
+    order: 2;
+  }
+  .btn-go{
+    width: 100%;
+    height: 48px;
+    order: 3;
+    justify-self: stretch;          /* ocupa a linha inteira */
+  }
+}
+
