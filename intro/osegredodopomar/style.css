@@ -1,0 +1,636 @@
+/* ======= Base ======= */
+:root{
+  --brand:#0b7ef2;
+  --brand-dark:#0868c4;
+  --green:#1bd760;
+  --green-dark:#18be54;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --border:#cbd5e1;
+  --surface:#ffffff;
+  --shadow:0 8px 24px rgba(0,0,0,.10);
+  --radius:14px;
+}
+
+/* ======= Header / Nav ======= */
+.site-header .topbar {
+  background: var(--brand); color: #fff; display: flex; flex-direction: column; align-items: center;
+  padding: 16px 20px 10px; position: relative;
+}
+
+.brand {
+  margin: 0;
+  letter-spacing: .5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  /* Você pode manter o font-size base aqui ou remover se as novas classes resolverem */
+  /* font-size: 3rem; */
+}
+
+/* --- NOVO CÓDIGO AQUI --- */
+
+/* Regra para CONTE e CONTO */
+
+.shadows-into-light-regular {
+  font-family: "Shadows Into Light", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/* Adicione esta regra ao seu arquivo CSS */
+
+.brand .fonte-diferente {
+    font-family: 'Shadows Into Light', cursive; /* APLICA A FONTE DO GOOGLE FONTS */
+    font-weight: 400; /* Peso normal para esta fonte */
+}
+
+.brand .palavra-grande {
+  font-size: 1.0em; /* Valor aumentado para ficar maior que o original */
+  font-weight: 800;
+}
+
+/* Regra para o UM */
+.brand .palavra-pequena {
+  font-size: 0.7em; /* Mantém menor */
+  font-weight: 800; /* Deixa o 'UM' mais fino */
+  vertical-align: middle;
+  margin: 0 3px; /* Espaço nas laterais */
+}
+
+
+
+/* Botões também como <a> */
+.btn{
+  display:inline-flex;           /* faz width funcionar em <a> */
+  align-items:center;
+  justify-content:center;        /* centraliza o texto */
+  text-decoration:none;          /* remove sublinhado */
+  border:0;
+  border-radius:10px;
+  padding:14px 22px;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .08s ease, filter .2s ease, background .2s ease;
+  box-shadow:var(--shadow);
+}
+
+/* garantir que nunca sublinhe nem mude a cor do primário */
+.btn:link,
+.btn:visited,
+.btn:hover,
+.btn:active{ text-decoration:none; }
+
+.btn-primary,
+.btn-primary:link,
+.btn-primary:visited{ color:#fff; }
+
+/* já existia, mantém 100% no card */
+.card .btn{ width:100%; }
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,Helvetica,sans-serif;
+  color:var(--text); background:#f6f8fb; line-height:1.4;}
+
+/* ======= Header / Nav ======= */
+.site-header .topbar{
+  background:var(--brand); color:#fff; display:flex; flex-direction:column; align-items:center;
+  padding:16px 20px 10px; position:relative;
+}
+.brand{margin:0; letter-spacing:.5px; font-weight:800;}
+.nav{display:flex; gap:28px; margin-top:8px; flex-wrap:wrap; justify-content:center;}
+.nav a{color:#e6f2ff; text-decoration:none; font-weight:600; padding:6px 2px; position:relative;}
+.nav a::after{content:''; position:absolute; left:0; bottom:-3px; height:2px; width:0; background:#fff; transition:width .2s ease;}
+.nav a:hover::after{ width:100% }
+
+/* ======= Hamburger (mobile) ======= */
+.hamburger{display:none; width:44px; height:38px; background:transparent; border:0; cursor:pointer;
+  position:absolute; right:12px; top:12px;}
+.hamburger span{display:block; height:3px; margin:6px 0; background:#fff; border-radius:2px;
+  transition:transform .25s ease, opacity .25s ease;}
+.hamburger.is-open span:nth-child(1){ transform: translateY(9px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2){ opacity:0; }
+.hamburger.is-open span:nth-child(3){ transform: translateY(-9px) rotate(-45deg); }
+
+/* ======= BARRA AZUL COM MENUS ======= */
+
+@media (max-width:880px){
+  .hamburger{ display:block; }
+.nav{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  width:100%;
+  gap:18px;
+  background:var(--brand);
+
+  max-height:0;
+  overflow:hidden;
+  padding:0 22px;
+
+  transition:max-height .3s ease, padding .3s ease;
+}
+
+.nav a{
+  display:block;
+  width:100%;
+}
+  .nav.open{ max-height:500px; padding:20px 0 22px; }
+}
+
+/* ======= Hero ======= */
+.hero{
+  min-height:360px; display:grid; align-items:center;
+  /* Removido o degradê azul: fica só a imagem */
+  background: url('assets/hero.jpg') top center/cover no-repeat;
+  color:#fff;
+}
+.hero-inner{ width:min(1100px,92%); margin-inline:auto; padding:28px 0 44px; }
+.hero h2{ font-size:clamp(15px, 4.2vw, 54px); font-weight:900; letter-spacing:.5px; margin:0 0 18px 0;
+  text-shadow:0 2px 0 rgba(0,0,0,.15); }
+
+
+@media (min-width: 1600px) {
+  .hero {
+    /* Move a imagem 15px para cima a partir do topo */
+    background-position: center calc(0% - 60px);
+  }
+}
+/* ======= Footer ======= */
+.footer{ background:var(--brand); color:#fff; text-align:center; padding:24px 16px; }
+
+/* ======= Responsive ======= */
+@media (max-width:980px){ .grid{ grid-template-columns: repeat(2, 1fr);} }
+@media (max-width:620px){ .grid{ grid-template-columns:1fr;} .nav{ gap:16px } .brand{ font-size:22px } }
+
+
+/* ======= Main Card ======= */
+.wrap{ width:min(1100px, 92%); margin:40px auto; }
+.card{
+  background:var(--surface);
+  border:2px solid #cfcfcf;
+  border-radius:8px;
+  box-shadow:var(--shadow);
+  padding:26px;
+  display:grid;
+  grid-template-columns: 310px 1fr;
+  gap:28px;
+}
+.cover{ width:100%; display:block; border-radius:4px; box-shadow:0 6px 18px rgba(0,0,0,.12); }
+.title{ margin:6px 0 8px; font-size:36px; letter-spacing:.6px; font-weight:800; }
+.desc{ color:#555; line-height:1.6; margin:12px 0 12px; }
+.author{ margin:16px 0; font-size:14px; }
+
+.access-row{
+  display:grid;
+  grid-template-columns: 48px 1fr 90px;
+  align-items:center;
+  gap:14px;
+  margin-top:14px;
+}
+.phones{ width:42px; height:42px; }
+
+input#code{
+  height:44px;
+  border:2px solid var(--border);
+  border-radius:10px;
+  padding:0 16px;
+  font-size:14px;
+  outline:none;
+  transition:border .2s ease, box-shadow .2s ease;
+  background:#fff;
+}
+input#code:focus{
+  border-color:var(--brand);
+  box-shadow:0 0 0 4px rgba(11,126,242,.12);
+}
+
+.btn{
+  border:0;
+  height:44px;
+  border-radius:12px;
+  padding:0 16px;
+  font-weight:800;
+  cursor:pointer;
+  background:var(--green);
+  color:#062c17;
+  transition: transform .08s ease, background .2s ease, filter .2s ease;
+}
+.btn:hover{ background:var(--green-dark); }
+.btn:active{ transform: translateY(1px); }
+
+.btn-go{ width:90px; display:flex; align-items:center; justify-content:center; }
+.btn-go .triangle{
+  width:0; height:0; display:inline-block;
+  border-left:18px solid #fff;
+  border-top:12px solid transparent;
+  border-bottom:12px solid transparent;
+}
+
+.msg{ margin-top:8px; font-size:13px; color:#b91c1c; min-height:18px; }
+
+/* ======= Footer ======= */
+.footer{
+  background: transparent;      /* remove a faixa azul */
+  color: #6b7280;               /* cinza */
+  text-align: center;
+  padding: 16px 0 32px;         /* espaço só para respirar */
+  margin-top: 32px;
+  box-shadow: none;             /* garante sem sombra */
+}
+.footer p{ margin: 0; }
+
+/* ======= Responsive ======= */
+@media (max-width: 980px){
+  /* nada aqui por enquanto */
+}
+
+/* Coluna única abaixo de 860px + ajustes de espaçamento */
+@media (max-width: 860px){
+  .card{
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .cover{               /* capa centralizada e com limite de largura */
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .title{ font-size: 30px; margin-top: 6px; }
+  .desc{ font-size: 15px; }
+  .author{ margin-top: 12px; }
+  /* mantém 3 colunas, mas encurta o botão para caber melhor nesse range */
+  .access-row{
+    grid-template-columns: 48px 1fr 72px;
+    gap: 12px;
+  }
+  .btn-go{ width: 72px; }
+}
+
+/* Empilha os campos abaixo de ~560px (celulares estreitos) */
+@media (max-width: 560px){
+  .access-row{
+    grid-template-columns: 1fr;     /* vira uma coluna */
+    grid-auto-rows: auto;
+    gap: 10px;
+  }
+  .phones{
+    width: 36px; height: 36px;
+    justify-self: start;
+    order: 1;
+  }
+  input#code{
+    width: 100%;
+    order: 2;
+  }
+  .btn-go{
+    width: 100%;
+    height: 48px;
+    order: 3;
+    justify-self: stretch;          /* ocupa a linha inteira */
+  }
+}
+/* Estilos do Modal */
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro */
+  backdrop-filter: blur(4px); /* Efeito de desfoque */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close-button:hover { color: var(--brand); }
+
+
+
+
+/* =========================
+   MODAL CADASTRO
+========================= */
+
+#modalCadastro{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.65);
+
+  backdrop-filter: blur(4px);
+
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* CAIXA */
+
+#modalCadastro .modal-content{
+
+  width:90%;
+  max-width:420px;
+
+  background:#fff;
+
+  border-radius:24px;
+
+  padding:35px 30px;
+
+  position:relative;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.25);
+
+  animation: abrirModal .25s ease;
+}
+
+
+/* TÍTULO */
+
+#modalCadastro h2{
+
+  font-size:28px;
+
+  margin-bottom:25px;
+
+  text-align:center;
+
+  color:#222;
+}
+
+
+/* INPUTS */
+
+#modalCadastro input{
+
+  width:100%;
+
+  padding:16px;
+
+  border:none;
+
+  border-radius:14px;
+
+  background:#f3f3f3;
+
+  margin-bottom:16px;
+
+  font-size:16px;
+
+  outline:none;
+
+  transition:.2s;
+}
+
+
+#modalCadastro input:focus{
+
+  background:#ececec;
+
+  transform:scale(1.02);
+}
+
+
+/* BOTÃO */
+
+#btnCadastrar{
+
+  width:100%;
+
+  border:none;
+
+  padding:16px;
+
+  border-radius:16px;
+
+  cursor:pointer;
+
+  font-size:16px;
+
+  font-weight:700;
+
+  color:#fff;
+
+  background:linear-gradient(
+    135deg,
+    #ff8c42,
+    #ff5e62
+  );
+
+  transition:.2s;
+}
+
+
+#btnCadastrar:hover{
+
+  transform:translateY(-2px);
+
+  opacity:.95;
+}
+
+
+/* MENSAGEM */
+
+#cadMsg{
+
+  margin-top:16px;
+
+  text-align:center;
+
+  font-size:15px;
+
+  font-weight:600;
+}
+
+
+/* FECHAR */
+
+#fecharCadastro{
+
+  position:absolute;
+
+  right:18px;
+
+  top:12px;
+
+  font-size:32px;
+
+  cursor:pointer;
+
+  color:#666;
+
+  transition:.2s;
+}
+
+
+#fecharCadastro:hover{
+
+  transform:scale(1.1);
+
+  color:#000;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes abrirModal{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(20px)
+      scale(.95);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+
+
+
+/* ======= LOGIN ADJUSTMENTS ======= */
+.access-row {
+  display: grid;
+  /* Mudamos para uma estrutura que prioriza os inputs */
+  grid-template-columns: auto 1fr 1fr auto; 
+  gap: 12px;
+  align-items: center;
+  margin-top: 25px;
+  width: 100%;
+}
+
+/* Garante que os inputs não diminuam além do legível */
+.login-input {
+  min-width: 0; /* Impede que o input quebre o grid */
+  width: 100%;
+  height: 50px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 12px;
+  background: #f3f3f3;
+  font-size: 14px;
+  transition: all .2s ease;
+}
+
+/* Ajuste do Botão para ser um quadrado perfeito */
+.btn-go {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff8c42, #ff5e62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ======= RESPONSIVIDADE (MOBILE) ======= */
+
+@media (max-width: 768px) {
+  .access-row {
+    /* Em tablets/celulares grandes, empilhamos os inputs em duas colunas, 
+       mas mantemos o ícone e o botão nas pontas ou acima */
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+  }
+  
+  .phones {
+    grid-column: span 2; /* Ícone centralizado no topo */
+    justify-self: center;
+    margin-bottom: 5px;
+  }
+  
+  .btn-go {
+    grid-column: span 2; /* Botão ocupa a largura total abaixo */
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .access-row {
+    /* Em telas muito pequenas, tudo vira uma coluna única */
+    grid-template-columns: 1fr;
+  }
+  
+  .phones {
+    grid-column: span 1;
+  }
+  
+  .login-input {
+    grid-column: span 1;
+  }
+  
+  .btn-go {
+    grid-column: span 1;
+  }
+}
+
+
+
+/* ===== MODAIS COM ROLAGEM ===== */
+
+.modal{
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.modal-content{
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Barra de rolagem bonita */
+.modal-content::-webkit-scrollbar{
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+  background: #bdbdbd;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track{
+  background: transparent;
+}
